@@ -9,11 +9,11 @@ use Dedi\SyliusSEOPlugin\Domain\SEO\Factory\SubjectUrl\SubjectUrlGeneratorInterf
 use Dedi\SyliusSEOPlugin\Domain\SEO\Model\Subject\HomepageRichSnippetSubject;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
+
 class HomepageUrlGenerator implements SubjectUrlGeneratorInterface
 {
     protected RouterInterface $router;
-    protected ?RequestStack $request;
+    protected $request;
     public function __construct(RouterInterface $router,RequestStack $requestStack)
     {
         $this->router = $router;
