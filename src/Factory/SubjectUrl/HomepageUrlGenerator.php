@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class HomepageUrlGenerator implements SubjectUrlGeneratorInterface
 {
     protected RouterInterface $router;
-    protected RequestStack $request;
+    protected ?RequestStack $request;
     public function __construct(RouterInterface $router,RequestStack $requestStack)
     {
         $this->router = $router;
