@@ -10,7 +10,7 @@ use Sylius\Component\Core\Model\ProductInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Webmozart\Assert\Assert;
-
+use Symfony\Component\HttpFoundation\RequestStack;
 class ProductUrlGenerator implements SubjectUrlGeneratorInterface
 {
     protected RouterInterface $router;
