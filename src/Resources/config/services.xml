@@ -66,16 +66,19 @@
 
         <service id="dedi_sylius_seo_plugin.rich_snippets.factory.subject_url.homepage_url_generator" class="Dedi\SyliusSEOPlugin\Factory\SubjectUrl\HomepageUrlGenerator">
             <argument key="$router" type="service" id="router.default"/>
+            <argument key="$requestStack" type="service" id="request_stack"/>
             <tag name="dedi_sylius_seo_plugin.rich_snippets.subject_url_generator"/>
         </service>
 
         <service id="dedi_sylius_seo_plugin.rich_snippets.factory.subject_url.product_url_generator" class="Dedi\SyliusSEOPlugin\Factory\SubjectUrl\ProductUrlGenerator">
             <argument key="$router" type="service" id="router.default"/>
+            <argument key="$requestStack" type="service" id="request_stack"/>
             <tag name="dedi_sylius_seo_plugin.rich_snippets.subject_url_generator"/>
         </service>
 
         <service id="dedi_sylius_seo_plugin.rich_snippets.factory.subject_url.taxon_url_generator" class="Dedi\SyliusSEOPlugin\Factory\SubjectUrl\TaxonUrlGenerator">
             <argument key="$router" type="service" id="router.default"/>
+            <argument key="$requestStack" type="service" id="request_stack"/>
             <tag name="dedi_sylius_seo_plugin.rich_snippets.subject_url_generator"/>
         </service>
 
