@@ -10,14 +10,15 @@ use Sylius\Component\Core\Model\ProductInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Webmozart\Assert\Assert;
-
+use Symfony\Component\HttpFoundation\RequestStack;
 class ProductUrlGenerator implements SubjectUrlGeneratorInterface
 {
     protected RouterInterface $router;
-
-    public function __construct(RouterInterface $router)
+    protected RequestStack $request;
+    public function __construct(RouterInterface $router,RequestStack $requestStack)
     {
         $this->router = $router;
+         $this->request= $requestStack->getCurrentRequest();
     }
 
     public function can(RichSnippetSubjectInterface $subject): bool
@@ -27,8 +28,6 @@ class ProductUrlGenerator implements SubjectUrlGeneratorInterface
 
     public function generateUrl(RichSnippetSubjectInterface $subject): string
     {
-        Assert::isInstanceOf($subject, ProductInterface::class);
-
-        return $this->router->generate('sylius_shop_product_show', ['slug' => $subject->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL);
+        return $this->router->generate('sylius_shop_product_show', ['countryCode'=>$this->request->attributes->get('countryCode'),'slug' => $subject->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL);
     }
 }
