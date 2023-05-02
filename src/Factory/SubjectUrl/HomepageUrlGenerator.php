@@ -9,7 +9,7 @@ use Dedi\SyliusSEOPlugin\Domain\SEO\Factory\SubjectUrl\SubjectUrlGeneratorInterf
 use Dedi\SyliusSEOPlugin\Domain\SEO\Model\Subject\HomepageRichSnippetSubject;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
-
+use Symfony\Component\HttpFoundation\RequestStack;
 class HomepageUrlGenerator implements SubjectUrlGeneratorInterface
 {
     protected RouterInterface $router;
